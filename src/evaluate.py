@@ -34,9 +34,9 @@ predictions_by_class = model.predict_proba(x)
 predictions = predictions_by_class[:, 1]
 
 # Use dvclive to log a few simple plots ...
-live.log_plot("roc", labels, predictions)
-live.log("avg_prec", metrics.average_precision_score(labels, predictions))
-live.log("roc_auc", metrics.roc_auc_score(labels, predictions))
+live.log_sklearn_plot("roc", labels, predictions)
+live.log_sklearn_plot("avg_prec", metrics.average_precision_score(labels, predictions))
+live.log_sklearn_plot("roc_auc", metrics.roc_auc_score(labels, predictions))
 
 # ... but actually it can be done with dumping data points into a file:
 # ROC has a drop_intermediate arg that reduces the number of points.
